@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Range Input</title>
+</head>
+<body>
+  <form action="javascript:;" method="post">
+    <fieldset>
+      <legend>RANGE INPUT</legend>
+      <label for="normal-rangor">Normal Range: </label>
+      <input type="range" value="120" step="any" min="0" max="500" id="normal-rangor">
+      <span id="normal-range-value"></span>
+      <br>
+      <br>
+      <label for="advanced-rangor">Advanced Range: </label>
+      <input type="range" value="20" step="5" min="0" max="100" list="marks" id="advanced-rangor">
+    </fieldset>
+  </form>
+
+  <datalist id="marks">
+    <option value="0"></option>
+    <option value="50" label="50"></option>
+    <option value="80"></option>
+  </datalist>
+
+  <script>
+    document.querySelector('#normal-rangor').addEventListener('change', e => {
+      document.querySelector('#normal-range-value').innerText = e.target.value
+    })
+  </script>
+</body>
+</html>
