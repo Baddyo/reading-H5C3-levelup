@@ -1,0 +1,36 @@
+.wrapper{
+  width: 750px;
+  min-height: 200px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 40px #333;
+  display: flex;
+  overflow: hidden;
+  background: orange;
+}
+.list-wrapper{
+  width: 300px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  padding-top: 0;
+}
+.form-box{
+  box-sizing: border-box;
+  width: calc(100% - 300px);
+  height: 100%;
+  background: skyblue;
+  padding: 20px;
+}
+.btn-box{
+  text-align: right;
+  margin-bottom: 20px;
+}
+#title{
+  width: 100%;
+}
+#note{
+  width: 100%;
+}
+.current-note{
+  border: 1px solid orangered;
+}

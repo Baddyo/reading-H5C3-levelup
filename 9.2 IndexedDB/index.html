@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Note Book</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="list-wrapper">
+      <h4>笔记列表</h4>
+      <div class="list-box"></div>
+    </div>
+    <div class="form-box">
+      <div class="btn-box">
+        <button class="new-btn" onclick="clearForm()">新建</button>
+        <button class="del-btn" onclick="delNote()">删除</button>
+      </div>
+      <form ref="fm" action="javascript:;" onsubmit="saveNote()">
+        <div class="title-box">
+          <label for="title">标题</label>
+          <input type="text" name="title" id="title">
+        </div>
+        <br>
+        <div class="note-box">
+          <label for="note">内容</label>
+          <textarea name="note" id="note" cols="30" rows="10"></textarea>
+        </div>
+        <br>
+        <input type="submit" value="保存">
+      </form>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
