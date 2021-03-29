@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 200px;
+            border: 8px solid orangered;
+            border-radius: 8px;
+            font-size: 38px;
+        }
+        .frm {
+            width: 300px;
+            height: 380px;
+            margin-top: 30px;
+            border: 8px solid darkgreen;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <iframe class="frm" src="http://localhost:3002/index.html" frameborder="0"></iframe>
+
+    <script>
+        window.addEventListener('message', e => {
+            if (e.origin === 'http://localhost:3002') {
+                document.querySelector('.box').innerText = e.data;
+            }
+        })
+    </script>
+</body>
+
+</html>
