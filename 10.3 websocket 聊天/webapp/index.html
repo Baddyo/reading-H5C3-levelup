@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket</title>
+    <style>
+        .chat-box{
+            width: 300px;
+            height: 200px;
+            border: 3px solid #333;
+            margin: 30px;
+        }
+        #msg-input{
+            width: 300px;
+            height: 100px;
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form action="javascript:;">
+        <fieldset>
+            <legend>CHAT ROOM</legend>
+            <div class="chat-box"></div>
+            <textarea name="" id="msg-input"></textarea>
+            <button onclick="sendMsg()">Send</button>
+        </fieldset>
+    </form>
+
+    <script src="./io.js"></script>
+    <script>        
+        let ws = null;
+        let chatBox = document.querySelector('.chat-box');
+        connect();
+        function connect() {
+            // ws = new WebSocket('ws://localhost:9999/');
+            ws = io();
+            ws.onopen = e => {
+                chatBox.innerText = '连接成功！';
+            }
+            ws.onmessage = e => {
+                chatBox.innerText += `${chatBox.innerText}
+                    e.data
+                `;
+            }
+            ws.onclose = e => {
+                chatBox.innerText = '断开连接！';
+            }
+        }
+        function sendMsg() {
+            let msgInput = document.querySelector('#msg-input');
+            if(!msgInput.value){
+                alert('EMPTY CONTENT!');
+                return;
+            }
+            if (ws) {
+                ws.send(msgInput.value);
+                msgInput.value = '';
+            }else{
+                alert('OFFLINE!')
+            }
+        }
+    </script>
+</body>
+</html>
